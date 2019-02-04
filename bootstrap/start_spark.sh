@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Start SSH service
-service ssh start
-
 # Set IS_SPARK_MASTER with the value of the 1st parameter to the script. If the 1st parameter is not entered, set it to NO
 IS_SPARK_MASTER=${IS_SPARK_MASTER:-NO}
 echo "IS_SPARK_MASTER =" $IS_SPARK_MASTER
@@ -19,7 +16,7 @@ else [[ "${IS_SPARK_MASTER}" = 'NO' ]]; then
   # Wait for the Spark Master to start
   while ! nc -z $SPARK_MASTER_IP 7077 ; do
     echo "Waiting for the Spark Master to start..."
-    sleep 2;
+    sleep 5;
   done;
   # Start Spark Worker
   echo "Starting Spark Worker..."

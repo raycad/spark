@@ -42,4 +42,4 @@ EXPOSE 6066 7077 8080 8081
 RUN echo -e "export SPARK_HOME=$SPARK_HOME\nexport PATH=$PATH:$SPARK_HOME/bin" >> /etc/bash.bashrc
 
 # Start services
-CMD [ "sh", "-c", "/root/start_spark.sh"]
+CMD [ "sh", "-c", "service ssh start; /root/start_spark.sh; /bin/bash"]
