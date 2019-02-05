@@ -28,3 +28,7 @@ $ start_containers.sh NO 192.168.1.10 1
 ```
 $ sudo docker exec -it spark-master bash
 ```
+
+### 5. Monitor spark cluster
+
+Access to the http://spark-master:8080 to monitor the spark cluster.
