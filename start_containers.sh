@@ -36,7 +36,7 @@ i=1
 while [ $i -lt $((SPARK_WORKER_NUMBER+1)) ]
 do
 	sudo docker rm -f spark-worker$i &> /dev/null
-	echo "Start spark-worker$i container..."
+	echo "Start spark-worker$i container in the spark network..."
 
 	# To avoid port conflict in the same host machine, the 1st hadoop slave port is mapped to 50075. From the other slaves the port is mapped to 2007$i
 	if [[ $i == 1 ]]; then
