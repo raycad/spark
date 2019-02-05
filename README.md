@@ -1,11 +1,11 @@
-# Apache Spark
+# Apache Spark Cluster
 
 ### 1. Pull the image
 ```
 $ sudo docker pull seedotech/spark:2.4.0
 ```
 
-### 2. Create a hadoop network
+### 2. Create a spark network
 ```
 $ sudo docker network create --driver=bridge spark
 ```
@@ -20,7 +20,7 @@ $ sudo docker network create --driver=bridge spark
 # The default spark cluster has 3 nodes includes 1 master and 2 workers
 $ start_containers.sh
 
-# If you want to create 1 spark worker in other machine (assume that the ip of the spark master is 192.168.1.10), you can do like that
+# If you want to create 1 spark worker in other machine (assume that the ip of the spark master is 192.168.1.10), you can do like that:
 $ start_containers.sh NO 192.168.1.10 1
 ```
 
