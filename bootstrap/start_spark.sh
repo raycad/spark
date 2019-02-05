@@ -4,15 +4,15 @@
 IS_SPARK_MASTER=${IS_SPARK_MASTER:-NO}
 echo "IS_SPARK_MASTER =" $IS_SPARK_MASTER
 
-# Set the default spark master ip is localhost
-SPARK_MASTER_IP=${SPARK_MASTER_IP:-localhost}
+# Set the default spark master ip is $(hostname)
+SPARK_MASTER_IP=${SPARK_MASTER_IP:-$(hostname)}
 echo "SPARK_MASTER_IP =" $SPARK_MASTER_IP
 
 if [[ "${IS_SPARK_MASTER}" = 'YES' ]]; then
   # Start Spark Master
   echo "Starting Spark Master..."
   spark-class org.apache.spark.deploy.master.Master -h $(hostname)
-else [[ "${IS_SPARK_MASTER}" = 'NO' ]]; then
+else
   # Wait for the Spark Master to start
   while ! nc -z $SPARK_MASTER_IP 7077 ; do
     echo "Waiting for the Spark Master to start..."

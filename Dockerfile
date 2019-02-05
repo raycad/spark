@@ -19,10 +19,8 @@ ENV SPARK_MASTER_IP localhost
 
 # Install dependencies
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install \
-  -y openssh-server openjdk-8-jdk scala python python3 wget nano iputils-ping net-tools telnet \
-  && apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+  && DEBIAN_FRONTEND=noninteractive \
+  apt-get install -y openssh-server openjdk-8-jdk scala python python3 wget nano iputils-ping net-tools netcat telnet
 
 # Install Spark
 RUN wget https://www-us.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
