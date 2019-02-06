@@ -37,7 +37,10 @@ ADD bootstrap/start_spark.sh /root/start_spark.sh
 EXPOSE 6066 7077 8080 8081
 
 # Set environment variables for other users
-RUN echo -e "export SPARK_HOME=$SPARK_HOME\nexport PATH=$PATH:$SPARK_HOME/bin" >> /etc/bash.bashrc
+# RUN echo -e "export SPARK_HOME=$SPARK_HOME\nexport PATH=$PATH:$SPARK_HOME/bin" >> /etc/bash.bashrc
+
+RUN echo "export SPARK_HOME=$SPARK_HOME" >> /etc/bash.bashrc
+RUN echo "export PATH=$PATH:$SPARK_HOME/bin" >> /etc/bash.bashrc
 
 # Start services
 CMD [ "sh", "-c", "service ssh start; /root/start_spark.sh; /bin/bash"]
